@@ -17,4 +17,11 @@ class GuessTest < Minitest::Test
     assert_instance_of Card, card
     assert_equal "10 of Hearts", guess.response
   end
+
+  def test_it_can_check_if_cards_match
+    card = Card.new("10","Hearts")
+    guess = Guess.new("10 of Hearts", card)
+
+    assert_equal true, guess.correct?
+  end 
 end

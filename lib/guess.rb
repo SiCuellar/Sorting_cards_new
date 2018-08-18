@@ -8,6 +8,10 @@ class Guess
   end
 
   def correct?
-    
+    if "#{@card.value} of #{@card.suit}" == response
+      return true
+    else
+      return false
+    end
   end
 end
