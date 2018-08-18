@@ -1,3 +1,4 @@
+require "pry"
 require "./lib/cards"
 
 class Guess
@@ -12,6 +13,14 @@ class Guess
       return true
     else
       return false
+    end
+  end
+
+  def feedback
+    if correct? == true
+      puts "Correct!"
+    else
+      puts "Incorrect"
     end
   end
 end
