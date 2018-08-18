@@ -17,10 +17,10 @@ class Guess
   end
 
   def feedback
-    if correct? == true
-      puts "Correct!"
+    if "#{@card.value} of #{@card.suit}" == response
+      return "Correct!"
     else
-      puts "Incorrect"
+      return "Incorrect."
     end
   end
 end
