@@ -10,8 +10,7 @@ class Guess
 
   def correct?
     if "#{@card.value} of #{@card.suit}" == response ||
-       {value: @card.value,
-        suit: @card.suit} == response
+       {value: @card.value, suit: @card.suit} == response
       return true
     else
       return false

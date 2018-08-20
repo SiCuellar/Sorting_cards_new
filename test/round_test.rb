@@ -68,6 +68,8 @@ class RoundTest < Minitest::Test
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
     round.record_guess({value: "3", suit: "Hearts"})
+    round.record_guess({value: "Jack", suit: "Diamonds"})
+
 
     assert_equal "Correct!", round.guesses.first.feedback
     assert_equal 1, round.number_correct
@@ -79,9 +81,19 @@ class RoundTest < Minitest::Test
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
     round.record_guess({value: "3", suit: "Hearts"})
-    round.record_guess({value: "4", suit: "Clubs"})
+    round.record_guess({value: "Jack", suit: "Diamonds"})
 
     assert_equal "Incorrect.", round.guesses.last.feedback
   end
 
+  def test_it_can_calculate_correct_percentages
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    round.record_guess({value: "Jack", suit: "Diamonds"})
+
+    assert_equal 50, round.percent_correct
+  end 
 end
