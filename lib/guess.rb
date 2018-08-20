@@ -9,7 +9,8 @@ class Guess
   end
 
   def correct?
-    if "#{@card.value} of #{@card.suit}" == response
+    if "#{@card.value} of #{@card.suit}" == response ||
+       {value: @card.value, suit: @card.suit} == response
       return true
     else
       return false
@@ -17,7 +18,7 @@ class Guess
   end
 
   def feedback
-    if "#{@card.value} of #{@card.suit}" == response
+    if correct?
       return "Correct!"
     else
       return "Incorrect."
